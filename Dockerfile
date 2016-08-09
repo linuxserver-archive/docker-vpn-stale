@@ -4,6 +4,7 @@ MAINTAINER loadofpeopleatlinuxserver.io
 # install packages
 RUN \
  apk add --no-cache \
+	curl \
 	openvpn
 
 # copy local files
