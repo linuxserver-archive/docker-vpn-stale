@@ -2,7 +2,7 @@
 
 # make folders
 mkdir -p \
-	/config{/keys,/log}
+	/config/log
 
 # permissions
 chown -R abc:abc \

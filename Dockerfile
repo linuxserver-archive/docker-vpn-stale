@@ -1,5 +1,5 @@
 FROM lsiobase/alpine
-MAINTAINER loadofpeopleatlinuxserver.io
+MAINTAINER j0nnymoe
 
 # install packages
 RUN \
