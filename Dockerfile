@@ -5,6 +5,7 @@ MAINTAINER j0nnymoe
 RUN \
  apk add --no-cache \
 	curl \
+	iptables \
 	openvpn
 
 # copy local files
