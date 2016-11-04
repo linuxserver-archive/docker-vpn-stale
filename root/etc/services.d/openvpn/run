@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
 exec \
-	s6-setuidgid abc openvpn \
+	s6-setuidgid root openvpn \
 	--config /config/openvpn.ovpn \
 	--log /config/log/openvpn.log
