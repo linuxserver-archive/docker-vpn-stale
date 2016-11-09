@@ -10,7 +10,7 @@ RUN \
 	curl \
 	iptables \
 	openvpn && \
- chmod +x /usr/bin/fw-start.sh
+ chmod +x /usr/bin/*.sh
 
 # ports and volumes
 VOLUME /config
