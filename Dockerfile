@@ -1,15 +1,16 @@
 FROM lsiobase/alpine
 MAINTAINER j0nnymoe
 
-# install packages
+# copy local files
+COPY root/ /
+
+# install packages and set exec flag
 RUN \
  apk add --no-cache \
 	curl \
 	iptables \
-	openvpn
-
-# copy local files
-COPY root/ /
+	openvpn && \
+ chmod +x /usr/bin/fw-start.sh
 
 # ports and volumes
 VOLUME /config
