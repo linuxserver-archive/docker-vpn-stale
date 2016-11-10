@@ -1,9 +1,28 @@
 #!/usr/bin/with-contenv bash
 
-# make folders
-mkdir -p \
-	/config/log
+OVPNCONF=/config/openvpn.ovpn
+OVPNCONF_BAK=/config/openvpn-lsio.ovpn.org
 
-# permissions
+#Make folders
+mkdir -p \
+        /config/log
+
+#Permissions
 chown -R abc:abc \
-	/config
+        /config
+
+#Backup and modify openvpn.ovpn if necessary
+if [[ $FORCEVPN && ! -f "$OVPNCONF_BAK" ]]; then
+   cp $OVPNCONF $OVPNCONF_BAK
+   sed -i '/up /d' $OVPNCONF
+   sed -i '/down /d' $OVPNCONF
+   sed -i '/script-security 2/d' $OVPNCONF
+   sed -i '/redirect-gateway/d' $OVPNCONF
+cat >> $OVPNCONF <<EOL
+script-security 2
+up /usr/bin/ovpn-up.sh
+down /usr/bin/ovpn-down.sh
+redirect-gateway
+EOL
+fi
+
