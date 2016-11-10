@@ -1,6 +1,11 @@
 FROM lsiobase/alpine
 MAINTAINER j0nnymoe
 
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+
 # copy local files
 COPY root/ /
 
